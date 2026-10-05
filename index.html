@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ROWEN: כורסת אלון ועור שנפתחת לעמדת מתח אוסטרלי. הוראות, בדיקות הנדסיות, שרטוטים וערכת הדפסה 1:5.">
+<meta property="og:title" content="ROWEN: כורסה שנפתחת לעמדת מתח">
+<meta property="og:image" content="img/hero_seat.jpg">
+<title>ROWEN כורסת מתח</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&family=Assistant:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: RTL product dossier — wide image plates, narrow reading column, technical tables in mono */
+:root{
+  --paper:#eef0ee; --panel:#e2e6e3; --ink:#1a1f1d; --muted:#5b6561;
+  --oak:#8a5a2b; --cognac:#7b3412; --steel:#2f5b7a; --rule:#c9cfcb; --ok:#2f6b3f; --warn:#9a5b00;
+  --display:"Secular One","Assistant",system-ui,sans-serif;
+  --body:"Assistant",system-ui,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#141816; --panel:#1d2320; --ink:#e7ebe8; --muted:#9aa5a0;
+  --oak:#d39a5c; --cognac:#e0835a; --steel:#7fb0d6; --rule:#2c3430; --ok:#7cc48e; --warn:#e3a94a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#141816; --panel:#1d2320; --ink:#e7ebe8; --muted:#9aa5a0;
+  --oak:#d39a5c; --cognac:#e0835a; --steel:#7fb0d6; --rule:#2c3430; --ok:#7cc48e; --warn:#e3a94a; color-scheme:dark}
+html{direction:rtl}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 80px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+h1{font-size:clamp(46px,8vw,92px);line-height:.95;letter-spacing:.01em}
+h2{font-size:clamp(28px,3.6vw,40px);line-height:1.1}
+h3{font-size:21px}
+p{margin:0}
+.read{max-width:68ch}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+section{display:grid;gap:22px;padding-block:56px;border-top:1px solid var(--rule)}
+header{display:grid;gap:18px;padding-block:8px 36px}
+.lede{font-size:21px;color:var(--muted);max-width:60ch}
+.lede b{color:var(--ink);font-weight:600}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figure img,figure video{width:100%;height:auto;display:block;border-radius:4px;background:var(--panel)}
+figcaption{font-size:14px;color:var(--muted)}
+.tag{font:500 12px/1 var(--mono);letter-spacing:.08em;padding:5px 8px;border-radius:3px;justify-self:start}
+.tag.seat{background:var(--cognac);color:var(--paper)}
+.tag.row{background:var(--steel);color:var(--paper)}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border-block:1px solid var(--rule)}
+.specs div{padding:14px 4px;display:grid;gap:2px;border-inline-start:1px solid var(--rule);padding-inline:14px}
+.specs div:first-child{border-inline-start:0;padding-inline-start:0}
+.specs b{font:500 26px/1.1 var(--mono);font-variant-numeric:tabular-nums}
+.specs span{font-size:13px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;counter-reset:s}
+.step{display:grid;gap:6px;align-content:start;counter-increment:s}
+.step h3::before{content:counter(s);font:500 14px/1 var(--mono);color:var(--paper);background:var(--ink);
+  display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;margin-inline-end:10px;vertical-align:3px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
+ul.clean{margin:0;padding-inline-start:20px;display:grid;gap:6px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font:500 12px/1.3 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.good{color:var(--ok);font-weight:600}.mid{color:var(--warn);font-weight:600}
+.note{border-inline-start:3px solid var(--warn);padding:10px 14px;background:var(--panel);border-radius:0 4px 4px 0}
+.fix{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border-top:1px solid var(--rule)}
+.fix>div{padding:12px 0;border-bottom:1px solid var(--rule)}
+.fix>div:nth-child(odd){padding-inline-end:18px;color:var(--muted)}
+.fix>div:nth-child(even){padding-inline-start:18px;border-inline-start:1px solid var(--rule)}
+code,.path{font-family:var(--mono);font-size:14px;direction:ltr;unicode-bidi:isolate}
+pre{background:var(--panel);padding:14px 16px;border-radius:4px;overflow-x:auto;direction:ltr;text-align:left;font:14px/1.6 var(--mono);margin:0}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+a{color:var(--steel)}
+:focus-visible{outline:2px solid var(--steel);outline-offset:2px}
+@media (max-width:760px){.duo,.split,.gallery,.fix{grid-template-columns:1fr}.fix>div:nth-child(even){border-inline-start:0;padding-inline-start:0}.fix>div:nth-child(odd){padding-bottom:2px;border-bottom:0}}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:12px 18px;border-radius:4px;font-weight:600}
+.btn:hover{background:var(--cognac)}
+ul.files{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:6px 24px}
+footer{padding-block:28px;border-top:1px solid var(--rule);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">ROWEN · כורסת טרקלין / עמדת inverted row · מסמך מוצר</span>
+  <h1>ROWEN</h1>
+  <p class="lede">כורסת אלון עם מושב וגב מעור מתוח. שני הערסלים נגללים לתוך המסגרת, ונשארת עמדת <b>מתח אוסטרלי</b> עם מוט בגובה 95 ס"מ.</p>
+  <div class="duo">
+    <figure><span class="tag seat">מצב ישיבה</span><img src="img/hero_seat.jpg" alt="ROWEN במצב ישיבה: מסגרת אלון, מושב וגב מעור קוניאק, מוט נירוסטה כמשענת עליונה"></figure>
+    <figure><span class="tag row">מצב מתח</span><img src="img/hero_row.jpg" alt="ROWEN פתוח: מסגרת פתוחה, מוט בגובה 950 מ&quot;מ ולוח עקבים שנשלף קדימה"></figure>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <div class="specs">
+    <div><b>950</b><span>גובה המוט, מ"מ</span><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div><b>740</b><span>מעבר חופשי בין הדפנות</span><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div><b>446</b><span>גובה מושב (קצה)</span><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div><b>1000×1285</b><span>רוחב × עומק</span><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div><b>≈60</b><span>משקל, ק"ג (אלון מלא)</span><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div><b>≥4.5</b><span>מקדם ביטחון להתהפכות</span><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+</header>
+
+<section>
+  <span class="eyebrow">המעבר בין המצבים</span>
+  <h2>שלוש תנועות, חצי דקה</h2>
+  <figure><video src="media/ROWEN_transform.mp4" controls muted loop playsinline preload="metadata" poster="img/hero_seat.jpg"></video>
+    <figcaption>הגב נגלל לעמוד השמאלי, אחריו המושב למסילה, לוח העקבים נשלף קדימה, ובסוף שתי חזרות.</figcaption></figure>
+  <div class="steps">
+    <div class="step"><h3>משחררים את הגב</h3><p>לוחצים על ידית הרצ'ט בעמוד השמאלי ומחליקים את מוט ה-keder החוצה מהערוץ הימני. הגליל אוסף את העור פנימה, כמו כיסוי תא מטען.</p><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div class="step"><h3>משחררים את המושב</h3><p>אותה פעולה במסילה השמאלית. בשני המקרים נשארת בחוץ רק לשונית עור קטנה, שבעזרתה מושכים את העור חזרה.</p><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div class="step"><h3>שולפים את לוח העקבים</h3><p>מושכים את לולאת העור קדימה עד העצירה. הלוח עובר מתחת לקורה הקדמית. סגירה בסדר הפוך: מותחים את העור, משחילים לערוץ ונועלים ברצ'ט.</p><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+</section>
+
+<section>
+  <span class="eyebrow">הוראות שימוש</span>
+  <h2>ביצוע מתח אוסטרלי</h2>
+  <div class="split">
+    <figure><img src="img/side_row_user.jpg" alt="מבט צד: משתמש בראש התנועה, וצללית שקופה בתחתית התנועה"><figcaption>ראש התנועה (לבן) ותחתית התנועה (כחול שקוף). העקבים על לוח העקבים.</figcaption></figure>
+    <div class="read" style="display:grid;gap:14px">
+      <ul class="clean">
+        <li>נשכבים על הגב בין המגלשים, <b>הראש לכיוון אחורי הכיסא</b>.</li>
+        <li>מניחים את העקבים על לוח העקבים, בין צלעות הגומי.</li>
+        <li>אוחזים במוט ברוחב כתפיים או מעט יותר, על אזור העור.</li>
+        <li>הגוף ישר מהעקב עד הכתף. מושכים עד שהחזה נוגע במוט ויורדים בשליטה עד ידיים ישרות.</li>
+        <li><b>קל יותר:</b> לכופף ברכיים ולקרב את הרגליים. <b>קשה יותר:</b> רגליים ישרות ורחוקות, ירידה איטית בשלוש שניות.</li>
+      </ul>
+      <p class="note">לא מושכים במוט קדימה כדי לקום מהרצפה. משיכה אופקית של כ-<span class="num">320 N</span> מהפכת את הכיסא קדימה כשאין אף אחד על לוח העקבים. לא מתאמנים כשהלוח מקופל ועל רצפה מבריקה או על שטיח רך.</p>
+    <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <div class="duo">
+    <figure><img src="img/seat_user.jpg" alt="משתמש יושב בכורסה"><figcaption>ישיבה: המושב נוטה 30 מ"מ לאחור והגב 11°. המוט עטוף בעור לכל אורכו.</figcaption></figure>
+    <figure><img src="img/persp_row_user.jpg" alt="משתמש בראש התנועה, מבט פרספקטיבה"><figcaption>מעבר של 740 מ"מ: גם במרפקים פתוחים לצדדים יש מרווח של כ-32 מ"מ מהעמודים.</figcaption></figure>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+</section>
+
+<section>
+  <span class="eyebrow">בדיקות הנדסיות · אפשר להריץ שוב מהסקריפטים</span>
+  <h2>בדקנו לפני שבנינו</h2>
+  <div class="split">
+    <div class="read" style="display:grid;gap:12px">
+      <h3>התנגשות גוף-מסגרת</h3>
+      <p>בובה ביומכנית של 1.80 מ' עברה 11 שלבים של חזרה, מזווית גוף של <span class="num">17.8°</span> עד <span class="num">37°</span>, עם פתיחת מרפקים קיצונית. התוצאה: <b class="good">0 חיתוכים</b>, ומרווח מינימלי של <span class="num">28 מ"מ</span>.</p>
+      <p>בגרסה הראשונה הבדיקה מצאה שהאמות פוגעות בפינה האחורית-עליונה של העמודים. התיקון: המוט עבר ל"מפרק" מעוגל בחלק האחורי של ראש העמוד.</p>
+      <h3>מוט</h3>
+      <p>צינור נירוסטה 304 בקוטר <span class="num">32×3</span> על מפתח <span class="num">810</span>. בעומס של 120 ק"ג ×1.5: <span class="num">61 MPa</span> (מקדם ביטחון 3.4 לכניעה), ושקיעה של <span class="num">1.6 מ"מ</span>.</p>
+    <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div style="display:grid;gap:10px;min-width:0">
+      <h3>יציבות במצב מתח: המקרה הגרוע</h3>
+      <p style="font-size:14px;color:var(--muted)">כוח ניצב לגו, מקדם דינמי ×1.5. מסה ומרכז כובד חושבו מהרשתות: <span class="num">59.2 ק"ג</span>.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>משתמש</th><th>זווית</th><th>כוח במוט</th><th>עם לוח עקבים</th><th>בלי הלוח</th><th>חיכוך נדרש</th></tr></thead>
+        <tbody>
+          <tr><td class="n">60 ק"ג</td><td class="n">37°</td><td class="n">450 N</td><td class="n good">5.36</td><td class="n">2.33</td><td class="n">0.29</td></tr>
+          <tr><td class="n">90 ק"ג</td><td class="n">37°</td><td class="n">675 N</td><td class="n good">4.80</td><td class="n">1.78</td><td class="n">0.36</td></tr>
+          <tr><td class="n">120 ק"ג</td><td class="n">28°</td><td class="n">995 N</td><td class="n good">4.89</td><td class="n">1.92</td><td class="n">0.32</td></tr>
+          <tr><td class="n">120 ק"ג</td><td class="n">37°</td><td class="n">900 N</td><td class="n good">4.52</td><td class="n mid">1.51</td><td class="n mid">0.42</td></tr>
+        </tbody></table><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+      <p style="font-size:14px;color:var(--muted)">עם לוח העקבים, הכוח האופקי בין העקב למוט נסגר בתוך הכיסא, ולכן לא נדרש חיכוך עם הרצפה כלל.</p>
+    <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+</section>
+
+<section>
+  <span class="eyebrow">סקירה עצמאית · סוכן הנדסי נפרד</span>
+  <h2>מה הסוקר מצא ומה שונה</h2>
+  <div class="fix">
+    <div>משיכה קדימה של כ-306 N, או שימוש הפוך, מהפכת את הכיסא. בלי הלוח נדרש חיכוך של 0.45.</div><div><b>לוח עקבים נשלף.</b> כוחות העקב והמוט נסגרים בתוך המסגרת, ומקדם הביטחון עולה מ-1.38 ל-4.5.<footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div>המוט יושב בחורים פשוטים: לא עובד בלחיצה, והקורה הקדמית 60×10 מגיעה לכניעה.</div><div>צווארונים על המוט, פקקים מוברגים, וקורה קדמית RHS 50×25×3 על הצד.<footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div>אין מקום לשגמים במסילה השמאלית בגלל חלל הגליל.</div><div>המסילה הוגבהה ל-150 מ"מ. השגמים בחלק התחתון, והגליל בחלק העליון.<footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div>מרווח מרפק של 16 מ"מ בלבד.</div><div>המעבר הורחב ל-740 מ"מ, ועכשיו המרווח כ-32 מ"מ.<footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div>קורת עץ אחורית מתחת לצוואר, במקרה של נפילה.</div><div>במקומה פס נירוסטה שטוח בגובה הרצפה.<footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div>ישיבה זקופה מדי (98°), מושב רדוד, ומוט קשיח מאחורי השכמות.</div><div>גב מוטה 11°, מושב מוטה 30 מ"מ לאחור, משענות יד נמוכות ב-25 מ"מ, ושרוול עור לכל אורך המוט.<footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+</section>
+
+<section>
+  <span class="eyebrow">שרטוטים · מ"מ</span>
+  <h2>מידות</h2>
+  <div class="duo">
+    <figure><img src="img/drawing_seat_side.jpg" alt="שרטוט צד במצב ישיבה עם מידות"></figure>
+    <figure><img src="img/drawing_row_side.jpg" alt="שרטוט צד במצב מתח עם משתמש בראש ובתחתית התנועה"></figure>
+    <figure><img src="img/drawing_seat_front.jpg" alt="שרטוט חזית במצב ישיבה"></figure>
+    <figure><img src="img/drawing_row_front.jpg" alt="שרטוט חזית במצב מתח"></figure>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+</section>
+
+<section>
+  <span class="eyebrow">ערכת הדפסה FDM · קנה מידה 1:5 · מגש 270 מ"מ</span>
+  <h2>דגם שנפתח ונסגר באמת</h2>
+  <p class="read">הדגם המורכב בגודל <span class="num">200×257×200 מ"מ</span>. כל החלקים מודפסים, כולל המוט, וכולם מגיעים כבר מסובבים לכיוון ההדפסה. מסגרות הצד שוכבות על הפנים הפנימיים, כך שהחריצים פונים למגש ואין צורך בתמיכות.</p>
+  <figure><img src="img/print_plates.jpg" alt="שלושה מגשי הדפסה: שתי מסגרות צד, ומגש שלישי עם לוחות העור, לוח העקבים, הקורות, המוט, השרוול והפקקים"><figcaption>סידור המגשים: עץ, עור ופלדה. מומלץ להדפיס בשלושה צבעים.</figcaption></figure>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>קובץ</th><th>כמות</th><th>כיוון הדפסה</th><th>צבע</th><th>גודל (מ"מ)</th></tr></thead>
+    <tbody>
+      <tr><td class="n">01</td><td><code>01_side_frame_R_x1.stl</code></td><td class="n">1</td><td>שוכב על הפנים הפנימיים</td><td>עץ</td><td class="n">257×200×26</td></tr>
+      <tr><td class="n">02</td><td><code>02_side_frame_L_x1.stl</code></td><td class="n">1</td><td>שוכב על הפנים הפנימיים</td><td>עץ</td><td class="n">257×200×26</td></tr>
+      <tr><td class="n">03</td><td><code>03_seat_panel.stl</code></td><td class="n">1</td><td>עומד על הקצה הקדמי, עם brim</td><td>קוניאק</td><td class="n">153×15×91</td></tr>
+      <tr><td class="n">04</td><td><code>04_back_panel.stl</code></td><td class="n">1</td><td>עומד על הקצה התחתון, עם brim</td><td>קוניאק</td><td class="n">153×7×90</td></tr>
+      <tr><td class="n">05</td><td><code>05_heel_plate.stl</code></td><td class="n">1</td><td>שטוח</td><td>שחור</td><td class="n">80×106×2</td></tr>
+      <tr><td class="n">06</td><td><code>06_front_tie.stl</code></td><td class="n">1</td><td>שטוח</td><td>כסף</td><td class="n">156×10×5</td></tr>
+      <tr><td class="n">07</td><td><code>07_rear_tie.stl</code></td><td class="n">1</td><td>שטוח</td><td>כסף</td><td class="n">156×6×12</td></tr>
+      <tr><td class="n">08</td><td><code>08_bar_sleeve.stl</code></td><td class="n">1</td><td>עומד, עם brim</td><td>קוניאק</td><td class="n">Ø8.4×147</td></tr>
+      <tr><td class="n">09</td><td><code>09_bar_cap_x2.stl</code></td><td class="n">2</td><td>כיפה למעלה</td><td>כסף</td><td class="n">Ø8.4×2.4</td></tr>
+      <tr><td class="n">10</td><td><code>10_bar_rod.stl</code></td><td class="n">1</td><td>הצד השטוח למטה, 100% מילוי</td><td>כסף</td><td class="n">Ø6×187</td></tr>
+    </tbody></table><footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <div class="split">
+    <div class="read" style="display:grid;gap:10px">
+      <h3>הגדרות</h3>
+      <ul class="clean">
+        <li>PLA או PETG. שכבה 0.2 (בלוחות העור 0.12–0.16), דפנות 3, מילוי 20%.</li>
+        <li>מוט: 100% מילוי. PETG קשיח יותר.</li>
+        <li>מרווחים מובנים: <span class="num">0.25</span> מ"מ לכל צד בהחלקה, <span class="num">0.1</span> מ"מ בלחיצה.</li>
+        <li>בדיקת ההתאמה האוטומטית (<code>print_report.json</code>): 0 חיתוכים בכל זוגות החלקים ולאורך מסלולי ההחלקה. כל החלקים סגורים (manifold).</li>
+      </ul>
+    <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+    <div class="read" style="display:grid;gap:10px">
+      <h3>הרכבה</h3>
+      <ol class="clean">
+        <li>לוחצים את שתי הקורות (06, 07) לשקעים בדופן הימנית, ומלבישים את הדופן השמאלית.</li>
+        <li>משחילים את המוט דרך עמוד אחד, מעבירים עליו את השרוול, ממשיכים דרך העמוד השני ולוחצים פקק בכל קצה.</li>
+        <li>מניחים את לוח העקבים בין המגלשים, מתחת למושב.</li>
+        <li>מחליקים את המושב <b>מקדימה</b> בחריצים שבמסילות, עד העצירה.</li>
+        <li>מחליקים את הגב <b>מלמעלה</b> בחריצים שבעמודים. הוא עובר לפני המוט.</li>
+      </ol>
+      <p>פתיחה לעמדת מתח: שולפים את הגב למעלה, את המושב קדימה, ומושכים את לוח העקבים קדימה מתחת לקורה.</p>
+    <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+</section>
+
+<section id="download">
+  <span class="eyebrow">הורדה</span>
+  <h2>קבצי ההדפסה</h2>
+  <p><a class="btn" href="stl/ROWEN_print_kit_1-5.zip" download>הורדת כל הערכה (ZIP, 382 KB)</a></p>
+  <ul class="clean files">
+      <li><a href="stl/01_side_frame_R_x1.stl" download><code>01_side_frame_R_x1.stl</code></a> <span class="num" style="color:var(--muted)">208 KB</span></li>
+      <li><a href="stl/02_side_frame_L_x1.stl" download><code>02_side_frame_L_x1.stl</code></a> <span class="num" style="color:var(--muted)">208 KB</span></li>
+      <li><a href="stl/03_seat_panel.stl" download><code>03_seat_panel.stl</code></a> <span class="num" style="color:var(--muted)">326 KB</span></li>
+      <li><a href="stl/04_back_panel.stl" download><code>04_back_panel.stl</code></a> <span class="num" style="color:var(--muted)">326 KB</span></li>
+      <li><a href="stl/05_heel_plate.stl" download><code>05_heel_plate.stl</code></a> <span class="num" style="color:var(--muted)">31 KB</span></li>
+      <li><a href="stl/06_front_tie.stl" download><code>06_front_tie.stl</code></a> <span class="num" style="color:var(--muted)">5 KB</span></li>
+      <li><a href="stl/07_rear_tie.stl" download><code>07_rear_tie.stl</code></a> <span class="num" style="color:var(--muted)">5 KB</span></li>
+      <li><a href="stl/08_bar_sleeve.stl" download><code>08_bar_sleeve.stl</code></a> <span class="num" style="color:var(--muted)">16 KB</span></li>
+      <li><a href="stl/09_bar_cap_x2.stl" download><code>09_bar_cap_x2.stl</code></a> <span class="num" style="color:var(--muted)">53 KB</span></li>
+      <li><a href="stl/10_bar_rod.stl" download><code>10_bar_rod.stl</code></a> <span class="num" style="color:var(--muted)">6 KB</span></li>
+  </ul>
+  <p style="color:var(--muted);font-size:15px">לצפייה בלבד, לא להדפסה: <a href="stl/_ASSEMBLED_preview_seat_mode.stl" download><code>_ASSEMBLED_preview_seat_mode.stl</code></a> · <a href="stl/_ASSEMBLED_preview_row_mode.stl" download><code>_ASSEMBLED_preview_row_mode.stl</code></a></p>
+</section>
+
+<section>
+  <span class="eyebrow">עוד זוויות</span>
+  <div class="gallery">
+    <figure><img src="img/rear_row.jpg" alt="מבט אחורי במצב מתח"><figcaption>מאחור: תומכות אחוריות וגלגלי הובלה.</figcaption></figure>
+    <figure><img src="img/detail_slot.jpg" alt="פרט: חריץ הגליל במסילה השמאלית עם לשונית העור"><figcaption>החריץ שאליו נגלל המושב, עם לשונית המשיכה.</figcaption></figure>
+    <figure><img src="img/detail_bar.jpg" alt="פרט: מוט עטוף עור בתוך ראש העמוד"><figcaption>המפרק בראש העמוד: המוט עטוף בעור ותפור.</figcaption></figure>
+  <footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+</section>
+
+<footer>ROWEN · עיצוב, הנדסה ורינדור: מודל פרמטרי בבלנדר 5.1. דגם ההדפסה בקנה מידה 1:5 מיועד לתצוגה בלבד.</footer>
+</div>
+
+</body>
+</html>

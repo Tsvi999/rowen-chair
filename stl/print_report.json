@@ -1,0 +1,197 @@
+{
+ "scale": "1:5.0",
+ "bed": [
+  270.0,
+  270.0,
+  270.0
+ ],
+ "parts": {
+  "01_side_frame_R_x1": {
+   "bbox_mm": [
+    200.4,
+    257.0,
+    26.0
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "inner face down, no supports"
+  },
+  "02_side_frame_L_x1": {
+   "bbox_mm": [
+    200.4,
+    257.0,
+    26.0
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "inner face down, no supports"
+  },
+  "03_seat_panel": {
+   "bbox_mm": [
+    153.2,
+    14.5,
+    91.0
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "stand on front edge, brim"
+  },
+  "04_back_panel": {
+   "bbox_mm": [
+    153.2,
+    7.4,
+    90.4
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "stand on bottom edge, brim"
+  },
+  "05_heel_plate": {
+   "bbox_mm": [
+    80.0,
+    106.0,
+    2.1
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "flat"
+  },
+  "06_front_tie": {
+   "bbox_mm": [
+    155.6,
+    10.0,
+    5.0
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "flat"
+  },
+  "07_rear_tie": {
+   "bbox_mm": [
+    155.6,
+    5.6,
+    12.0
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "flat"
+  },
+  "08_bar_sleeve": {
+   "bbox_mm": [
+    8.4,
+    8.4,
+    146.8
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "upright"
+  },
+  "09_bar_cap_x2": {
+   "bbox_mm": [
+    8.4,
+    8.4,
+    2.4
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "dome up, print 2"
+  },
+  "10_bar_rod": {
+   "bbox_mm": [
+    187.2,
+    6.0,
+    5.5
+   ],
+   "fits_bed": true,
+   "nonmanifold_edges": 0,
+   "orientation": "flat side down, 100% infill, PETG/PLA"
+  }
+ },
+ "fit_checks": {
+  "seat_panel vs side_L": {
+   "min_gap_model_mm": 0.25,
+   "intersect": false
+  },
+  "seat_panel vs side_R": {
+   "min_gap_model_mm": 0.25,
+   "intersect": false
+  },
+  "back_panel vs side_L": {
+   "min_gap_model_mm": 0.19,
+   "intersect": false
+  },
+  "back_panel vs side_R": {
+   "min_gap_model_mm": 0.19,
+   "intersect": false
+  },
+  "front_tie vs side_L": {
+   "min_gap_model_mm": 0.1,
+   "intersect": false
+  },
+  "front_tie vs side_R": {
+   "min_gap_model_mm": 0.1,
+   "intersect": false
+  },
+  "rear_tie vs side_L": {
+   "min_gap_model_mm": 0.1,
+   "intersect": false
+  },
+  "rear_tie vs side_R": {
+   "min_gap_model_mm": 0.1,
+   "intersect": false
+  },
+  "bar_sleeve vs side_L": {
+   "min_gap_model_mm": 0.6,
+   "intersect": false
+  },
+  "bar_sleeve vs side_R": {
+   "min_gap_model_mm": 0.6,
+   "intersect": false
+  },
+  "bar_rod vs side_L": {
+   "min_gap_model_mm": 0.36,
+   "intersect": false
+  },
+  "bar_rod vs side_R": {
+   "min_gap_model_mm": 0.36,
+   "intersect": false
+  },
+  "heel_plate vs front_tie": {
+   "min_gap_model_mm": 2.2,
+   "intersect": false
+  },
+  "heel_plate vs side_L": {
+   "min_gap_model_mm": 34.06,
+   "intersect": false
+  },
+  "heel_plate vs side_R": {
+   "min_gap_model_mm": 34.06,
+   "intersect": false
+  },
+  "seat_panel vs back_panel.001": {
+   "min_gap_model_mm": 16.7,
+   "intersect": false
+  },
+  "back_panel vs sleeve": {
+   "min_gap_model_mm": 8.08,
+   "intersect": false
+  },
+  "heel_plate(out) vs front_tie": {
+   "min_gap_model_mm": 2.2,
+   "intersect": false
+  },
+  "seat_panel slid out": {
+   "min_gap_model_mm": 0.23,
+   "intersect": false
+  },
+  "back_panel lifted out": {
+   "min_gap_model_mm": 0.22,
+   "intersect": false
+  }
+ },
+ "assembled_size_mm": [
+  200,
+  257,
+  200
+ ]
+}
